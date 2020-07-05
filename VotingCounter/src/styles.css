@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/*#################### Global STYLE #######################
+*/
+
+
+/* main style for the page and setting background */
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-size: cover;
+    width: auto;
+    background-image: url("./assets/bg.png");
+    background-position: top;
+}

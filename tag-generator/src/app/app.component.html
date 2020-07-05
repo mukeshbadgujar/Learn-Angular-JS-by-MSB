@@ -1,0 +1,23 @@
+<div class="container">
+
+
+    <div class="text-center w-50 mt-5 border border-primary">
+        Number of Tags: {{limit}}
+    </div>
+
+    <div class="form-group">
+        <label for="formControlRange">Drag To Limit</label>
+        <input min="1" max="50" value="{{limit}}" type="range" class="form-control-range" id="formControlRange" (change)="handleChange($event.target.value)">
+    </div>
+
+    <button class="btn btn-primary" (click)="generateTag()">
+        Generate Tags
+    </button>
+
+    <div class="card card-body">
+        <p class="display-4">
+            Generated Tags: {{tags}}
+        </p>
+
+    </div>
+</div>
