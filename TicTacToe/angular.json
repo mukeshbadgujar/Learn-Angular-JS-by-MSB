@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "TicTacToe"
+    }
+  },
+  "defaultProject": "TicTacToe",
+  "cli": {
+    "analytics": false
+  }
 }
