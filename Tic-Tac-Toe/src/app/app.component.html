@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col col-md-6">
+            <div class="text-center">
+                <h1 [hidden]="isCross" class="text-uppercase text-denger">Player O 1'st Turn</h1>
+                <h1 [hidden]="!isCross" class="text-uppercase text-denger">Player X 2'nd Turn</h1>
+            </div>
+            <div class="grid">
+                <div *ngFor="let item of itemArray; index as i">
+                    <div class="card">
+                        <div (click)="handleClick(i)" class="card-box box">
+                            <app-icon [iconName]="item"></app-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-md-6 text-center" *ngIf="winMsg">
+            <h1 class="text-uppercase">Game Over: {{winMsg}}</h1>
+            <button (click)="reloadGame()" class="btn btn-danger text-uppercase pl-5 pr-5">
+              Reload Game
+          </button>
+        </div>
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>
