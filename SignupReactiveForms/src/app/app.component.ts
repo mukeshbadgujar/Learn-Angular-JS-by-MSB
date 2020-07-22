@@ -8,35 +8,44 @@ import { passwordChecker } from './custome-validators/password-checker';
 })
 export class AppComponent implements OnInit{
   title = 'SignupReactiveForms';
-  registerForm: FormGroup;
-  submitted= false;
 
-  constructor(private formBuilder:FormBuilder){}
-  ngOnInit(){
-    this.registerForm = this.formBuilder.group({
-      firstName: ["",Validators.required],
-      lastName: ["",Validators.required],
-      email:["",[Validators.required,Validators.email]],
-      pass: ["",[Validators.required, Validators.minLength(6)]],
-      confPass: ["",Validators.required],
-      acceptTC: [false, Validators.requiredTrue],
-    },{
-      validators:passwordChecker("pass","confPass"),
+  registerForm: FormGroup;
+  submitted = false;
+
+  constructor(private formbuilder: FormBuilder) {}
+
+  ngOnInit() {
+    this.registerForm = this.formbuilder.group({
+      firstName: ["", Validators.required],
+      lastName: ["", Validators.required],
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ["", Validators.required],
+      acceptTandC: [false, Validators.requiredTrue],
+    }, {
+      validators: passwordChecker("password", "confirmPassword"),
     });
   }
 
-  onSubmit(){
-    this.submitted = true;
-    if(this.registerForm.invalid){
-      return;
-    }
-    console.table(this.registerForm.value);
-    console.table(this.registerForm);
-    alert("Success Submitted \n"+JSON.stringify(this.registerForm.value))
+  get h() {
+    return this.registerForm.controls;
   }
 
-  onReset(){
+  onSubmit() {
+    this.submitted = true;
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    console.table(this.registerForm.value);
+    console.table(this.registerForm);
+
+    alert("Success Signup\n" + JSON.stringify(this.registerForm.value));
+  }
+
+  onReset() {
     this.submitted = false;
     this.registerForm.reset();
   }
+
 }

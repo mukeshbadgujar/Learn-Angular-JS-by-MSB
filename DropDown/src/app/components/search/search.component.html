@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<div style="text-align:center">
+    <h1>
+        Search in Angular App | JSON World
+    </h1>
+</div>
+
+<input style="float:right;" [(ngModel)]="searchText" placeholder="search text goes here">
+<table class="table">
+    <tr>
+        <td>Full Name</td>
+        <td>Address</td>
+        <td>Interests</td>
+    </tr>
+    <tr *ngFor="let data of users | filter : searchText">
+        <td>{{data.full_name}}</td>
+        <td>{{data.address}}</td>
+        <td>{{data.interests}}</td>
+    </tr>
+</table>
