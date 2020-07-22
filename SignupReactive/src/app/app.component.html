@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card bg-dark text-white m-3 mt-5">
         <h5 class="card-header text-center">
-            <img src="../assets/logo.png" alt="" width="30" height="30" class="mr-2" /> LCO Signup Form
+            <img src="../assets/logo.png" alt="" width="30" height="30" class="mr-2" /> MSB Signup Form
         </h5>
         <div class="card-body">
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -48,15 +48,15 @@
                         <div *ngIf="h.password.touched && h.password.errors" class="text-warning">
                             <div *ngIf="h.password.errors.required">Password is required</div>
                             <div *ngIf="h.password.errors.minlength">
-                                Password must be at least 6 characters
+                                Password must be at least betn 6 characters to 12
                             </div>
                         </div>
                     </div>
                     <div class="form-group col">
                         <label>Confirm Password</label>
                         <input formControlName="confirmPassword" [ngClass]="{
-                  'is-invalid': submitted && h.confirmPassword.errors
-                }" type="password" class="form-control" />
+                'is-invalid': submitted && h.confirmPassword.errors
+              }" type="password" class="form-control" />
                         <div *ngIf="h.confirmPassword.touched && h.confirmPassword.errors" class="text-warning">
                             <div *ngIf="h.confirmPassword.errors.required">
                                 Confirm Password is required
@@ -69,25 +69,25 @@
                 </div>
                 <div class="form-group form-check">
                     <input formControlName="acceptTandC" [ngClass]="{
-                'is-invalid': submitted && h.acceptTandC.errors
-              }" type="checkbox" id="acceptTerms" class="form-check-input" />
+              'is-invalid': submitted && h.acceptTandC.errors
+            }" type="checkbox" id="acceptTerms" class="form-check-input" />
                     <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label
-            >
-            <div *ngIf="h.acceptTandC.touched && h.acceptTandC.errors  || submitted && h.acceptTandC.errors" class="text-warning">
-                <div *ngIf="h.acceptTandC.errors.required">
-                    Accept Ts & Cs is required
-                </div>
-            </div>
+          >
+          <div *ngIf="h.acceptTandC.touched && h.acceptTandC.errors  || submitted && h.acceptTandC.errors" class="text-warning">
+              <div *ngIf="h.acceptTandC.errors.required">
+                  Accept Ts & Cs is required
+              </div>
           </div>
-          <div class="text-center">
-            <button class="btn btn-success btn-lg px-4 mr-3">Register</button>
-            <button (click)="onReset()" class="btn btn-warning" type="reset">
-              Reset
-            </button>
-            <p class="text white">Value: {{ registerForm.value | json }}</p>
-            <p class="text white">Value: {{ registerForm.valid | json }}</p>
-          </div>
-        </form>
-      </div>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-success btn-lg px-4 mr-3">Register</button>
+          <button (click)="onReset()" class="btn btn-warning" type="reset">
+            Reset
+          </button>
+          <p class="text white">Value: {{ registerForm.value | json }}</p>
+          <p class="text white">Value: {{ registerForm.valid | json }}</p>
+        </div>
+      </form>
     </div>
   </div>
+</div>
